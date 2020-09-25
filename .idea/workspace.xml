@@ -29,13 +29,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1hxmTXMEnSfr4CADTAaZrlcmlv5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -126,10 +129,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="159" y="73" key="#PSD/0.0.1280.680@0.0.1280.680" timestamp="1600961385742" />
+    <state x="280" y="0" key="CommitChangelistDialog2" timestamp="1601041654430">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="280" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1601041654430" />
     <state x="422" y="82" key="FileChooserDialogImpl" timestamp="1601041615088">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="422" y="82" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1601041615088" />
+    <state x="448" y="234" key="Github.ShareDialog" timestamp="1601041849913">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="448" y="234" key="Github.ShareDialog/0.0.1280.680@0.0.1280.680" timestamp="1601041849913" />
+    <state x="405" y="47" key="Github.UntrackedFilesDialog" timestamp="1601041873851">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="405" y="47" key="Github.UntrackedFilesDialog/0.0.1280.680@0.0.1280.680" timestamp="1601041873851" />
     <state width="1237" height="201" key="GridCell.Tab.0.bottom" timestamp="1601040907975">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
