@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_screen_master"
+    tools:context=".MainScreen"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainScreen">
+    android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/new_file_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="20dp"
+        android:text="@string/new_file_string"
+        app:icon="@android:drawable/ic_input_add" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recentFilesRCV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/file_name_layout_stub" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
