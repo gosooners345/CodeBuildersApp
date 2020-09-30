@@ -158,13 +158,21 @@
       <option name="project" value="LOCAL" />
       <updated>1601050087809</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added Coding feature">
+      <created>1601481981203</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1601481981203</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add code to project" />
     <MESSAGE value="Start official project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start official project" />
+    <MESSAGE value="Added Coding feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Coding feature" />
   </component>
   <component name="WindowStateProjectService">
     <state x="159" y="73" key="#PSD" timestamp="1600961385742">
@@ -179,10 +187,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="448" y="154" key="AndroidCreateXmlResourceDialog/0.0.1280.680@0.0.1280.680" timestamp="1601478453695" />
-    <state x="280" y="0" key="CommitChangelistDialog2" timestamp="1601050083619">
+    <state x="280" y="0" key="CommitChangelistDialog2" timestamp="1601482142912">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="280" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1601050083619" />
+    <state x="280" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1601482142912" />
     <state x="422" y="82" key="FileChooserDialogImpl" timestamp="1601041615088">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -227,10 +235,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="201" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1601481902141" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1601050089478">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1601482037687">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1601050089478" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1601482037687" />
     <state width="326" height="89" key="javadoc.popup.new" timestamp="1601480537868">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
