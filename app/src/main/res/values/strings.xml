@@ -51,4 +51,6 @@
     <string name="aside"><![CDATA[<aside>]]></string>
     <string name="input"><![CDATA[<input>]]></string>
     <string name="label"><![CDATA[<label>]]></string>
+    <string name="home">home</string>
+    <string name="menu">menu</string>
 </resources>

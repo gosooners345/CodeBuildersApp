@@ -172,12 +172,12 @@ codeSection = charSequence.toString();
         breakButton = findViewById(R.id.breakActionButton);
         codeEditor = findViewById(R.id.code_block_EditText);
         submitButton = findViewById(R.id.submit_Button);
-asideButton=findViewById(R.id.asideActionButton);
-asideButton.setOnClickListener(textTagClicker);
-inputButton=findViewById(R.id.inputActionButton);
-inputButton.setOnClickListener(textTagClicker);
-labelButton=findViewById(R.id.labelActionButton);
-labelButton.setOnClickListener(textTagClicker);
+        asideButton = findViewById(R.id.asideActionButton);
+        asideButton.setOnClickListener(textTagClicker);
+        inputButton = findViewById(R.id.inputActionButton);
+        inputButton.setOnClickListener(textTagClicker);
+        labelButton = findViewById(R.id.labelActionButton);
+        labelButton.setOnClickListener(textTagClicker);
         htmlButton.setOnClickListener(textTagClicker);
         paragraphButton.setOnClickListener(textTagClicker);
         divButton.setOnClickListener(textTagClicker);
@@ -231,7 +231,6 @@ labelButton.setOnClickListener(textTagClicker);
         orListButton.setOnClickListener(textTagClicker);
         linkButton = findViewById(R.id.linkActionButton);
         linkButton.setOnClickListener(textTagClicker);
-
     }
 
 
