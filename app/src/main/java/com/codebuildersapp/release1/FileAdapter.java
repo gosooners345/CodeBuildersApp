@@ -1,5 +1,7 @@
 package com.codebuildersapp.release1;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -15,7 +17,11 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ViewHolder> {
     @NonNull
     @Override
     public FileAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+       Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View fileView = inflater.inflate(R.layout.file_name_listitem_layout,parent,false);
+
+    return null;
     }
 
     @Override
@@ -38,6 +44,11 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ViewHolder> {
         public void onClick(View view) {
 
         }
+    };
+
+    public interface OnFileListener{
+        void onFileClick(int position);
     }
+
 }
 

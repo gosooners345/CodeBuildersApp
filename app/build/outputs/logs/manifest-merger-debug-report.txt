@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-33:12
+ADDED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-32:12
 MERGED from [androidx.navigation:navigation-ui:2.3.0] C:\Users\Brandon Guerin\.gradle\caches\transforms-2\files-2.1\d0f92c0b26fabb47a28488bab3cc8456\navigation-ui-2.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\Brandon Guerin\.gradle\caches\transforms-2\files-2.1\fee048776b4040c0a73e83e4303a6cff\material-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Brandon Guerin\.gradle\caches\transforms-2\files-2.1\86e1e5d883ec66c1063a0d9a82a27792\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
@@ -47,20 +47,20 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Brandon Gueri
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\Brandon Guerin\.gradle\caches\transforms-2\files-2.1\336e4d7f5d818582899034e03216341f\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Brandon Guerin\.gradle\caches\transforms-2\files-2.1\e737982ea91fdf7ea321d344c75db0be\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Brandon Guerin\.gradle\caches\transforms-2\files-2.1\1e0614212b25f4ae67724a3587ed8129\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-32:12
 	package
 		ADDED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:3:5-43
 		INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml
 		INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-33:12
+		ADDED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-32:12
 		INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-33:12
+		ADDED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:1-32:12
 		INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:2:11-69
@@ -127,9 +127,9 @@ ADDED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xm
 	android:name
 		ADDED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:29:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:31:5-81
+ADDED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:30:5-81
 	android:name
-		ADDED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:31:22-78
+		ADDED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:30:22-78
 uses-sdk
 INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml

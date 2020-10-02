@@ -17,8 +17,8 @@
 12-->C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:29:5-80
 12-->C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:29:22-77
 13    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-13-->C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:31:5-81
-13-->C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:31:22-78
+13-->C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:30:5-81
+13-->C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:30:22-78
 14
 15    <application
 15-->C:\AndroidAppProjects\CodeBuildersApp\app\src\main\AndroidManifest.xml:5:5-27:19

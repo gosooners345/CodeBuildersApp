@@ -69,6 +69,7 @@ codeSection = charSequence.toString();
     }
 });
    codeEditor.setText(codeSection);
+   codeEditor.setSelection(codeSection.length());
     }
     Button.OnClickListener textTagClicker = new View.OnClickListener() {
         @Override
@@ -86,7 +87,7 @@ codeSection = charSequence.toString();
                 case R.id.htmlActionButton:codeSection= codeEditor.getText().toString();
                 if (codeSection.contains("<html>"))codeSection=codeSection.concat("\r\n"+"</html>");else if(!codeSection.contains("<html>")) codeSection=codeSection.concat("<html>");
                 else if(codeSection.contains("<html>")&codeSection.contains("</html>")) codeSection.concat(HTML_STRING);
-                codeEditor.setText(codeSection); codeEditor.setSelection(codeSection.lastIndexOf("<html>"));break;
+                codeEditor.setText(codeSection); codeEditor.setSelection(codeSection.length());break;
 
                 case R.id.paragraphActionButton:
                   codeSection=codeEditor.getText().insert(codeEditor.getSelectionStart(), PARAGRAPH_STRING).toString();

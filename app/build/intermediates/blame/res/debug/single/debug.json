@@ -72,6 +72,10 @@
         "source": "C:\\AndroidAppProjects\\CodeBuildersApp\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\AndroidAppProjects\\CodeBuildersApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_file_name_listitem_layout.xml.flat",
+        "source": "C:\\AndroidAppProjects\\CodeBuildersApp\\app\\src\\main\\res\\layout\\file_name_listitem_layout.xml"
+    },
+    {
         "merged": "C:\\AndroidAppProjects\\CodeBuildersApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_browser.xml.flat",
         "source": "C:\\AndroidAppProjects\\CodeBuildersApp\\app\\src\\main\\res\\layout\\activity_browser.xml"
     },

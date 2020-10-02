@@ -1779,6 +1779,8 @@ id expand_activities_button
 id expanded_menu
 id fade
 id fileNameID
+id fileStub
+id file_name_ID
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1909,6 +1911,7 @@ id position
 id postLayout
 id progress_circular
 id progress_horizontal
+id project_ID
 id quoteActionButton
 id radio
 id ratio
@@ -2123,6 +2126,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout file_name_layout_stub
+layout file_name_listitem_layout
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -2255,6 +2259,7 @@ string hello_first_fragment
 string hello_second_fragment
 string hide_bottom_view_on_scroll_behavior
 string hint
+string home
 string html
 string icon_content_description
 string input
@@ -2265,6 +2270,7 @@ string listItemString
 string mainActionString
 string material_slider_range_end
 string material_slider_range_start
+string menu
 string mtrl_badge_numberless_content_description
 string mtrl_chip_close_icon_content_description
 string mtrl_exceed_max_badge_number_content_description
