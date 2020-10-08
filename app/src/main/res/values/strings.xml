@@ -53,4 +53,13 @@
     <string name="label"><![CDATA[<label>]]></string>
     <string name="home">home</string>
     <string name="menu">menu</string>
+    <string name="project_name">Project Name</string>
+    <string name="cancel">Cancel</string>
+    <string name="name">Name</string>
+    <string name="file_type">File type</string>
+    <string-array name="documentType">
+        <item>html</item>
+        <item>css</item>
+        <item>js</item>
+    </string-array>
 </resources>

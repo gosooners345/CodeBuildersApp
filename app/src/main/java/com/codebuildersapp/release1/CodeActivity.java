@@ -1,27 +1,45 @@
 package com.codebuildersapp.release1;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.io.*;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.attribute.FileAttribute;
 import java.util.Objects;
 
 public class CodeActivity extends AppCompatActivity {
+    OutputStream outStream;
+private static final int CREATE_NEW_CODE_FILE = 1;
+    //File file = new File(sdCard,"");
+    InputStream inStream;
 Button htmlButton, paragraphButton, divButton, headButton,bodyButton,submitButton,breakButton,buttonButton;
 Button h1Button, h2Button, h3Button, h4Button, h5Button, h6Button,linkButton;
 Button tableButton, tableRowButton, tableDetlButton, tableFooterButton;
 Button labelButton, asideButton, inputButton;
 Button mainButton, headerButton,footerButton, quoteButton, formButton, scriptButton,styleButton,strikerButton;
-Button listButton, unListButton, orListButton;
+Button listButton, unListButton, orListButton,saveButton;
 private static final String DOC_HEADER_HTML="<!DOCTYPE html>\r\n",HTML_STRING= "\r\n<html>\r\n</html>",HEAD_STRING="<head> \r\n</head>",
         PARAGRAPH_STRING = "<p> \r\n </p>", BREAK_STRING="<br>",DIV_STRING="<div> \r\n </div>",
     BUTTON_STRING="<button>  </button>",LINK_REF_STRING="<a href =\" \"> </a>",BODY_STRING = "<body> \r\n </body>",
@@ -36,7 +54,7 @@ private static final String DOC_HEADER_HTML="<!DOCTYPE html>\r\n",HTML_STRING= "
         INPUT_ACTIONSTRING="<input>",LABEL_ACTIONSTRING="<label>";
 
 TextInputEditText codeEditor;
-String codeSection;
+String codeSection,projectName="",fileType="";
 int activity_id;
 TextView fileNameView;
     @Override
@@ -45,12 +63,7 @@ TextView fileNameView;
         setContentView(R.layout.activity_code);
         fileNameView = findViewById(R.id.page_title_TV);
         buttonInitializer();
-
-
-
-
-        codeSection = DOC_HEADER_HTML;
-activity_id=getIntent().getIntExtra("activity_id",0);
+        activity_id = getIntent().getIntExtra("INTENT_ID",-1);
 codeEditor.addTextChangedListener(new TextWatcher() {
     @Override
     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -68,10 +81,34 @@ codeSection = charSequence.toString();
 
     }
 });
-   codeEditor.setText(codeSection);
-   codeEditor.setSelection(codeSection.length());
+switch (activity_id)
+{
+    case 1:
+        codeSection = DOC_HEADER_HTML;
+
+        projectName= getIntent().getStringExtra("PROJECT");
+
+        fileType = getIntent().getStringExtra("DOCUMENTTYPE");
+        fileNameView.setText(projectName);
+        break;
+    case 2:
+
+        projectName= getIntent().getStringExtra("PROJECT");
+        fileNameView.setText(projectName);
+        codeSection=getIntent().getStringExtra("FILEDATA");
+
+break;
+}
+        codeEditor.setText(codeSection);
+        codeEditor.setSelection(codeSection.length());
+
+
+
+
+
     }
     Button.OnClickListener textTagClicker = new View.OnClickListener() {
+        @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
         public void onClick(View view) {
             int selectionInt =codeSection.length(),selector= codeEditor.getSelectionStart(),selectionEnd=codeEditor.getSelectionEnd();
@@ -159,6 +196,9 @@ codeSection = charSequence.toString();
                     codeSection=codeEditor.getText().toString();
                     webIntent.putExtra("textData",codeSection);
                     startActivity(webIntent);
+                    break;
+                case R.id.saveButton:
+                    SaveFile();break;
             }
 
         }};
@@ -232,10 +272,45 @@ codeSection = charSequence.toString();
         orListButton.setOnClickListener(textTagClicker);
         linkButton = findViewById(R.id.linkActionButton);
         linkButton.setOnClickListener(textTagClicker);
-    }
-
-
-    private void SaveFile(){
+        saveButton = findViewById(R.id.saveButton);
+        saveButton.setOnClickListener(textTagClicker);
 
     }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void SaveFile()
+    {String saveFile;
+        if(activity_id==1)
+        saveFile=projectName+"."+fileType;
+        else
+        saveFile=projectName;
+            codeSection=codeEditor.getText().toString();
+
+
+Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+intent.addCategory(Intent.CATEGORY_OPENABLE);
+intent.setType("text/html");
+intent.putExtra(Intent.EXTRA_TITLE,saveFile);
+
+FileOutputStream fileOut;
+startActivityForResult(intent, CREATE_NEW_CODE_FILE);
+intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+intent.addCategory(Intent.CATEGORY_OPENABLE);
+intent.setType("text/html");
+//fileOut = new FileOutputStream(Environment.getExternalStorageDirectory().getPath()+"/CodeBuildersApp/"+saveFile,false);
+/*FileWriter fileWriter;
+try{
+    fileWriter=new FileWriter(Environment.getExternalStorageDirectory().getPath()+"/CodeBuildersApp/"+saveFile,false);
+    fileWriter.write(codeSection);
+    fileWriter.close();
 }
+catch (Exception ex)
+{
+    ex.printStackTrace();
+}*/
+
+
+
+    }}
+

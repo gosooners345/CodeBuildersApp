@@ -27,10 +27,13 @@
             android:parentActivityName="com.codebuildersapp.release1.CodeActivity" />
         <activity
             android:name="com.codebuildersapp.release1.CodeActivity"
-            android:parentActivityName="com.codebuildersapp.release1.MainScreen" />
+            android:parentActivityName="com.codebuildersapp.release1.MainScreen"
+            android:requestLegacyExternalStorage="true" >
+        </activity>
         <activity
             android:name="com.codebuildersapp.release1.MainScreen"
             android:label="@string/app_name"
+            android:requestLegacyExternalStorage="true"
             android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

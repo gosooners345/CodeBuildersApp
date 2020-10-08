@@ -24,6 +24,15 @@ android:layout_height="wrap_content"
         android:text="@string/new_file_string"
         app:icon="@android:drawable/ic_input_add" />
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/openFileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_margin="20dp"
+        android:text="open File"
+        app:icon="@android:drawable/ic_input_add" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recentFilesRCV"
         android:layout_width="match_parent"
