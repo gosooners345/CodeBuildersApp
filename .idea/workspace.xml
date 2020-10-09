@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8997189d-6c7e-41b3-a2a0-9775db01da7c" name="Default Changelist" comment="">
+    <list default="true" id="8997189d-6c7e-41b3-a2a0-9775db01da7c" name="Default Changelist" comment="Fix new file screen edit text related items">
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -14,7 +14,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
@@ -31,6 +30,8 @@
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/MainScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_screen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/new_file_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/new_file_dialog.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602171418112</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Squash save file bugs">
+      <created>1602253060175</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1602253060175</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -228,7 +236,10 @@
     <MESSAGE value="Added Coding features and completed main section of app" />
     <MESSAGE value="Added placeholder to save file feature" />
     <MESSAGE value="Improve Save code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improve Save code" />
+    <MESSAGE value="Squash save file bugs" />
+    <MESSAGE value="Fix new file screen edit text related items" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix new file screen edit text related items" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="159" y="73" key="#PSD" timestamp="1600961385742">
@@ -255,10 +266,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="448" y="154" key="AndroidCreateXmlResourceDialog/0.0.1280.680@0.0.1280.680" timestamp="1602075619797" />
-    <state x="56" y="0" width="1224" height="680" key="CommitChangelistDialog2" timestamp="1602171413745">
+    <state x="56" y="0" width="1224" height="680" key="CommitChangelistDialog2" timestamp="1602254879430">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="56" y="0" width="1224" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1602171413745" />
+    <state x="56" y="0" width="1224" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1602254879430" />
     <state x="422" y="82" key="FileChooserDialogImpl" timestamp="1601041615088">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -271,46 +282,46 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="405" y="47" key="Github.UntrackedFilesDialog/0.0.1280.680@0.0.1280.680" timestamp="1601041873851" />
-    <state width="1237" height="201" key="GridCell.Tab.0.bottom" timestamp="1602252790007">
+    <state width="1237" height="201" key="GridCell.Tab.0.bottom" timestamp="1602259370524">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="201" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1602252790007" />
-    <state width="1237" height="201" key="GridCell.Tab.0.center" timestamp="1602252790007">
+    <state width="1237" height="201" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1602259370524" />
+    <state width="1237" height="201" key="GridCell.Tab.0.center" timestamp="1602259370524">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="201" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1602252790007" />
-    <state width="1237" height="201" key="GridCell.Tab.0.left" timestamp="1602252790007">
+    <state width="1237" height="201" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1602259370524" />
+    <state width="1237" height="201" key="GridCell.Tab.0.left" timestamp="1602259370524">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="201" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1602252790007" />
-    <state width="1237" height="201" key="GridCell.Tab.0.right" timestamp="1602252790007">
+    <state width="1237" height="201" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1602259370524" />
+    <state width="1237" height="201" key="GridCell.Tab.0.right" timestamp="1602259370524">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="201" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1602252790007" />
-    <state width="1237" height="201" key="GridCell.Tab.1.bottom" timestamp="1602252790008">
+    <state width="1237" height="201" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1602259370524" />
+    <state width="1237" height="201" key="GridCell.Tab.1.bottom" timestamp="1602259366655">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="201" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1602252790008" />
-    <state width="1237" height="201" key="GridCell.Tab.1.center" timestamp="1602252790007">
+    <state width="1237" height="201" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1602259366655" />
+    <state width="1237" height="201" key="GridCell.Tab.1.center" timestamp="1602259366655">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="201" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1602252790007" />
-    <state width="1237" height="201" key="GridCell.Tab.1.left" timestamp="1602252790007">
+    <state width="1237" height="201" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1602259366655" />
+    <state width="1237" height="201" key="GridCell.Tab.1.left" timestamp="1602259366655">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="201" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1602252790007" />
-    <state width="1237" height="201" key="GridCell.Tab.1.right" timestamp="1602252790008">
+    <state width="1237" height="201" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1602259366655" />
+    <state width="1237" height="201" key="GridCell.Tab.1.right" timestamp="1602259366655">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="201" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1602252790008" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1602171420841">
+    <state width="1237" height="201" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1602259366655" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1602254893017">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1602171420841" />
-    <state width="326" height="84" key="javadoc.popup.new" timestamp="1602252770449">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1602254893017" />
+    <state width="326" height="84" key="javadoc.popup.new" timestamp="1602258721873">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="326" height="84" key="javadoc.popup.new/0.0.1280.680@0.0.1280.680" timestamp="1602252770449" />
+    <state width="326" height="84" key="javadoc.popup.new/0.0.1280.680@0.0.1280.680" timestamp="1602258721873" />
     <state width="408" height="113" key="javadoc.popup.new/0.0.1600.860@0.0.1600.860" timestamp="1601659783710" />
     <state x="298" y="151" key="run.anything.popup" timestamp="1601387224396">
       <screen x="0" y="0" width="1280" height="680" />
@@ -322,15 +333,6 @@
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1602083146034" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/MainScreen.java</url>
-          <line>85</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
         <watch expression="uri.getPathSegments().size()" />

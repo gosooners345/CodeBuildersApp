@@ -22,6 +22,7 @@ android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="20dp"
         android:text="@string/new_file_string"
+        app:backgroundTint="@color/colorAccent"
         app:icon="@android:drawable/ic_input_add" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -31,12 +32,13 @@ android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
         android:layout_margin="20dp"
         android:text="open File"
+        app:backgroundTint="@color/colorAccent"
         app:icon="@android:drawable/ic_input_add" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recentFilesRCV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/file_name_layout_stub" />
+        tools:listitem="@layout/file_name_listitem_layout" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
