@@ -6,12 +6,15 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.ParcelFileDescriptor;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -33,6 +36,7 @@ public class CodeActivity extends AppCompatActivity {
     OutputStream outStream;
 private static final int CREATE_NEW_CODE_FILE = 1;
     //File file = new File(sdCard,"");
+    private  static  final int OPEN_DOC_HTML_FILE = 2;
     InputStream inStream;
 Button htmlButton, paragraphButton, divButton, headButton,bodyButton,submitButton,breakButton,buttonButton;
 Button h1Button, h2Button, h3Button, h4Button, h5Button, h6Button,linkButton;
@@ -52,7 +56,7 @@ private static final String DOC_HEADER_HTML="<!DOCTYPE html>\r\n",HTML_STRING= "
     HEADER_STRING = "<header> \r\n</header>", FOOTER_STRING = "<footer>\r\n </footer>",FORM_STRING = "<form> \r\n</form>",
     SCRIPT_STRING="<script> </script>",STRIKER_STRING = "<s> </s>", STYLE_STRING="<style>\r\n</style>", ASIDE_STRING="<aside> \r\n</aside>",
         INPUT_ACTIONSTRING="<input>",LABEL_ACTIONSTRING="<label>";
-
+private static final int SAVE_REQUEST_CODE = 33;
 TextInputEditText codeEditor;
 String codeSection,projectName="",fileType="";
 int activity_id;
@@ -63,56 +67,50 @@ TextView fileNameView;
         setContentView(R.layout.activity_code);
         fileNameView = findViewById(R.id.page_title_TV);
         buttonInitializer();
-        activity_id = getIntent().getIntExtra("INTENT_ID",-1);
-codeEditor.addTextChangedListener(new TextWatcher() {
-    @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        activity_id = getIntent().getIntExtra("INTENT_ID", -1);
+        codeEditor.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-    }
+            }
 
-    @Override
-    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-codeSection = charSequence.toString();
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                codeSection = charSequence.toString();
 
-    }
+            }
 
-    @Override
-    public void afterTextChanged(Editable editable) {
+            @Override
+            public void afterTextChanged(Editable editable) {
 
-    }
-});
-switch (activity_id)
-{
-    case 1:
-        codeSection = DOC_HEADER_HTML;
+            }
+        });
+//This determines what the application needs to do in order to display the right data
+        //Aka new file or reading in a file
+        switch (activity_id) {
+            case 1:
+                codeSection = DOC_HEADER_HTML;
+                fileType = getIntent().getStringExtra("DOCUMENTTYPE");
 
-        projectName= getIntent().getStringExtra("PROJECT");
-
-        fileType = getIntent().getStringExtra("DOCUMENTTYPE");
+                break;
+            case 2:
+                codeSection = getIntent().getStringExtra("FILEDATA");
+                break;
+        }
+        projectName = getIntent().getStringExtra("PROJECT");
         fileNameView.setText(projectName);
-        break;
-    case 2:
-
-        projectName= getIntent().getStringExtra("PROJECT");
-        fileNameView.setText(projectName);
-        codeSection=getIntent().getStringExtra("FILEDATA");
-
-break;
-}
         codeEditor.setText(codeSection);
         codeEditor.setSelection(codeSection.length());
 
 
-
-
-
     }
+    //This activates all of the buttons on screen when the application loads
     Button.OnClickListener textTagClicker = new View.OnClickListener() {
         @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
         public void onClick(View view) {
             int selectionInt =codeSection.length(),selector= codeEditor.getSelectionStart(),selectionEnd=codeEditor.getSelectionEnd();
-          
+
             switch (view.getId())
             {
                 case R.id.headActionButton:codeSection=codeEditor.getText().insert(selector, HEAD_STRING).toString();
@@ -202,7 +200,7 @@ break;
             }
 
         }};
-      
+
 
     private void buttonInitializer() {
         htmlButton = findViewById(R.id.htmlActionButton);
@@ -279,38 +277,68 @@ break;
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void SaveFile()
-    {String saveFile;
-        if(activity_id==1)
-        saveFile=projectName+"."+fileType;
+    private void SaveFile() {
+        String saveFile;
+        if (activity_id == 1)
+            saveFile = projectName + "." + fileType;
         else
-        saveFile=projectName;
-            codeSection=codeEditor.getText().toString();
+            saveFile = projectName;
+        codeSection = codeEditor.getText().toString();
+        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("text/html");
+        intent.putExtra(Intent.EXTRA_TITLE, saveFile);
+        startActivityForResult(intent, SAVE_REQUEST_CODE);
+
+    }
+
+    public void onActivityResult(int requestCode, int resultCode,
+                                 Intent resultData) {
+
+        super.onActivityResult(requestCode, resultCode, resultData);
+        Uri currentUri = null;
+
+        if (requestCode == SAVE_REQUEST_CODE) {
+
+            if (resultData != null) {
+                currentUri = resultData.getData();
+                writeFileContent(currentUri);
+            }
+        }
+    }
 
 
-Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-intent.addCategory(Intent.CATEGORY_OPENABLE);
-intent.setType("text/html");
-intent.putExtra(Intent.EXTRA_TITLE,saveFile);
+    private void writeFileContent(Uri uri)
+    {
+        try{
+            ParcelFileDescriptor pfd =
+                    this.getContentResolver().
+                            openFileDescriptor(uri, "w");
 
-FileOutputStream fileOut;
-startActivityForResult(intent, CREATE_NEW_CODE_FILE);
-intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-intent.addCategory(Intent.CATEGORY_OPENABLE);
-intent.setType("text/html");
-//fileOut = new FileOutputStream(Environment.getExternalStorageDirectory().getPath()+"/CodeBuildersApp/"+saveFile,false);
-/*FileWriter fileWriter;
-try{
-    fileWriter=new FileWriter(Environment.getExternalStorageDirectory().getPath()+"/CodeBuildersApp/"+saveFile,false);
-    fileWriter.write(codeSection);
-    fileWriter.close();
+            FileOutputStream fileOutputStream =
+                    new FileOutputStream(pfd.getFileDescriptor());
+
+            String textContent =
+                    codeEditor.getText().toString();
+
+            fileOutputStream.write(textContent.getBytes());
+
+            fileOutputStream.close();
+            pfd.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent backToHome = new Intent(getApplicationContext(),MainScreen.class);
+
+        this.finish();
+        startActivity(backToHome);
+    }
 }
-catch (Exception ex)
-{
-    ex.printStackTrace();
-}*/
-
-
-
-    }}
 

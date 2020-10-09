@@ -36,8 +36,9 @@ import java.util.Objects;
 public class MainScreen extends AppCompatActivity {
 ExtendedFloatingActionButton newFileFab, openFileFab;
 String filePath = "";
-private  static  final int OPEN_DOC_HTML_FILE = 2;
+    private  static  final int OPEN_DOC_HTML_FILE = 2;
     String  fileName="";
+   // Intent fileOpenIntent = new Intent(getApplicationContext(),CodeActivity.class);
 String projectsFolder= (Environment.getExternalStorageDirectory().getPath()+"/CodeBuildersProjects/");
 static  String[] permissions = new String[2];
 String fileType="";
@@ -53,20 +54,7 @@ String fileData ="";
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(this,"Access Granted",Toast.LENGTH_SHORT).show();
-            boolean available = false;
-            boolean readable = false;
-
-            String state = Environment.getExternalStorageState();
-            if (Environment.MEDIA_MOUNTED.equals(state))
-                available = true;
-            else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state))
-            {readable=true;available=true;
-            }
-            else
-                available=false;
-            Snackbar.make(findViewById(R.id.main_screen_master),projectsFolder,Snackbar.LENGTH_INDEFINITE).show();
-
-        }
+                  }
 else{
             ActivityCompat.requestPermissions(this,permissions, 1);
             Toast.makeText(this,"Access Needs accepted",Toast.LENGTH_SHORT).show();
@@ -76,14 +64,6 @@ else{
         newFileFab.setOnClickListener(newFabListener);
         openFileFab=findViewById(R.id.openFileButton);
         openFileFab.setOnClickListener(openFileListener);
-                /*new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view,"New file stub",Snackbar.LENGTH_LONG).show();
-                int ACTIVITY_ID = 1;
-                Intent intent = new Intent(getApplicationContext(),CodeActivity.class);
-                intent.putExtra("activity_ID",ACTIVITY_ID);
-                startActivity(intent);*/
 
     }
     public void onFileClick(int position)
@@ -97,24 +77,25 @@ else{
     ExtendedFloatingActionButton.OnClickListener openFileListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-
-          Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            Intent intent;
+if(fileData==""){
+           intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
           intent.addCategory(Intent.CATEGORY_OPENABLE);
           intent.setType("text/html");
           startActivityForResult(intent,OPEN_DOC_HTML_FILE);
-          Toast.makeText(getApplicationContext(),fileData,Toast.LENGTH_SHORT).show();
-            Intent intent2 = new Intent(getApplicationContext(),CodeActivity.class);
+}
+else {
+    intent = new Intent(getApplicationContext(), CodeActivity.class);
+    intent.putExtra("FILEDATA", fileData);
+    intent.putExtra("PROJECT", fileName);
+    intent.putExtra("DOCUMENTTYPE", fileType);
+    intent.putExtra("INTENT_ID", 2);
+   startActivity(intent);}
+}
 
-            if(fileData!="") {
-                intent2.putExtra("FILEDATA", fileData);
-                intent2.putExtra("PROJECT",fileName);
-                intent2.putExtra("DOCUMENTTYPE", fileType);
-                intent2.putExtra("INTENT_ID", 2);
-                startActivity(intent2);
-            }
 
-        }};
-
+};
+//Loading a document
     @Override
     public void onActivityResult(int requestCode, int resultCode,
                                  Intent resultData) {
@@ -126,16 +107,15 @@ else{
             Uri uri = null;
             if (resultData != null) {
                 uri = resultData.getData();
-                // Perform operations on the document using its URI.
-            }
-            try {
-                String[] chunks = uri.getLastPathSegment().split("/");
-                fileName=chunks[chunks.length-1];
-                fileData=readTextFromUri(uri);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+                try {
+                    String[] chunks = uri.getLastPathSegment().split("/");
+                    fileName=chunks[chunks.length-1];
+                    fileData=readTextFromUri(uri);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
+            }
         }
     }
  ExtendedFloatingActionButton.OnClickListener newFabListener = new View.OnClickListener() {
@@ -198,6 +178,4 @@ else{
         }
         return stringBuilder.toString();
     }
-
-
 }
