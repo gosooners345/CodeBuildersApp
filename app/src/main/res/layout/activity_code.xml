@@ -184,6 +184,14 @@
                 android:text="@string/link" />
 
             <Button
+                android:id="@+id/aHrefActionButton"
+                style="?android:attr/buttonBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/web_link" />
+
+            <Button
                 android:id="@+id/h1ActionButton"
                 style="?android:attr/buttonBarStyle"
                 android:layout_width="wrap_content"

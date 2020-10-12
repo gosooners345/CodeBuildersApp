@@ -57,6 +57,7 @@
     <string name="cancel">Cancel</string>
     <string name="name">Name</string>
     <string name="file_type">File type</string>
+    <string name="web_link">web link</string>
     <string-array name="documentType">
         <item>html</item>
         <item>css</item>

@@ -31,34 +31,35 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class CodeActivity extends AppCompatActivity {
     OutputStream outStream;
-private static final int CREATE_NEW_CODE_FILE = 1;
+    private static final int CREATE_NEW_CODE_FILE = 1;
     //File file = new File(sdCard,"");
     private static final int CSS_FILE = 3;
     InputStream inStream;
-Button htmlButton, paragraphButton, divButton, headButton,bodyButton,submitButton,breakButton,buttonButton;
-Button h1Button, h2Button, h3Button, h4Button, h5Button, h6Button,linkButton;
-Button tableButton, tableRowButton, tableDetlButton, tableFooterButton;
-Button labelButton, asideButton, inputButton;
-Button mainButton, headerButton,footerButton, quoteButton, formButton, scriptButton,styleButton,strikerButton;
-Button listButton, unListButton, orListButton,saveButton;
-private static final String DOC_HEADER_HTML="<!DOCTYPE html>\r\n",HTML_STRING= "\r\n<html>\r\n</html>",HEAD_STRING="<head> \r\n</head>",
-        PARAGRAPH_STRING = "<p> \r\n </p>", BREAK_STRING="<br>",DIV_STRING="<div> \r\n </div>",
-    BUTTON_STRING="<button>  </button>",LINK_REF_STRING="<a href =\" \"> </a>",BODY_STRING = "<body> \r\n </body>",
-    H1_STRING = "<h1> </h1>",H2_STRING = "<h2>  </h2>", H3_STRING = "<h3>  </h3>",H4_STRING="<h4> </h4>",
-    H5_STRING = "<h5> </h5>", H6_STRING = "<h6> </h6>",
-        TABLE_STRING="<table> \r\n </table>",TABLE_FOOTER_STRING="<tfoot> \r\n</tfoot>",
-        TABLE_DETAIL_STRING="<td> </td>",TABLE_ROW_STRING="<tr> \r\n</tr>",
-    ORDERED_LIST_STRING="<ol>\r\n </ol>",LIST_ITEM_STRING="<li> </li>",UNORDERED_LIST_STRING="<ul> \r\n </ul>",
-    QUOTATION_STRING="<q> </q>",MAIN_ACTIONSTRING="<main> \r\n</main>",
-    HEADER_STRING = "<header> \r\n</header>", FOOTER_STRING = "<footer>\r\n </footer>",FORM_STRING = "<form> \r\n</form>",
-    SCRIPT_STRING="<script> </script>",STRIKER_STRING = "<s> </s>", STYLE_STRING="<style>\r\n</style>", ASIDE_STRING="<aside> \r\n</aside>",
-        INPUT_ACTIONSTRING="<input>",LABEL_ACTIONSTRING="<label>";
+    Button htmlButton, paragraphButton, divButton, headButton, bodyButton, submitButton, breakButton, buttonButton;
+    Button h1Button, h2Button, h3Button, h4Button, h5Button, h6Button, linkButton;
+    Button tableButton, tableRowButton, tableDetlButton, tableFooterButton;
+    Button labelButton, asideButton, inputButton, linkRefButton;
+    Button mainButton, headerButton, footerButton, quoteButton, formButton, scriptButton, styleButton, strikerButton;
+    Button listButton, unListButton, orListButton, saveButton;
+    private static final String DOC_HEADER_HTML = "<!DOCTYPE html>\r\n", HTML_STRING = "<html>\r\n</html>", HEAD_STRING = "<head> \r\n</head>",
+            PARAGRAPH_STRING = "<p> \r\n </p>", BREAK_STRING = "<br>", DIV_STRING = "<div> \r\n </div>",
+            BUTTON_STRING = "<button>  </button>", LINK_REF_STRING = "<a href =\" \"> </a>", BODY_STRING = "<body> \r\n </body>",
+            H1_STRING = "<h1> </h1>", H2_STRING = "<h2>  </h2>", H3_STRING = "<h3>  </h3>", H4_STRING = "<h4> </h4>",
+            H5_STRING = "<h5> </h5>", H6_STRING = "<h6> </h6>",
+            TABLE_STRING = "<table> \r\n </table>", TABLE_FOOTER_STRING = "<tfoot> \r\n</tfoot>",
+            TABLE_DETAIL_STRING = "<td> </td>", TABLE_ROW_STRING = "<tr> \r\n</tr>",
+            ORDERED_LIST_STRING = "<ol>\r\n </ol>", LIST_ITEM_STRING = "<li> </li>", UNORDERED_LIST_STRING = "<ul> \r\n </ul>",
+            QUOTATION_STRING = "<q> </q>", MAIN_ACTIONSTRING = "<main> \r\n</main>",
+            HEADER_STRING = "<header> \r\n</header>", FOOTER_STRING = "<footer>\r\n </footer>", FORM_STRING = "<form> \r\n</form>",
+            SCRIPT_STRING = "<script> </script>", STRIKER_STRING = "<s> </s>", STYLE_STRING = "<style>\r\n</style>", ASIDE_STRING = "<aside> \r\n</aside>",
+            INPUT_ACTIONSTRING = "<input>", LABEL_ACTIONSTRING = "<label>";
 
-private static final int SAVE_REQUEST_CODE = 33;
-TextInputEditText codeEditor;
-String codeSection,projectName="",fileType="";
-int activity_id;
-TextView fileNameView;
+    private static final int SAVE_REQUEST_CODE = 33;
+    TextInputEditText codeEditor;
+    String codeSection, projectName = "", fileType = "";
+    int activity_id;
+    TextView fileNameView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,87 +114,104 @@ TextView fileNameView;
         @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
         public void onClick(View view) {
-            int selectionInt =codeSection.length(),selector= codeEditor.getSelectionStart(),selectionEnd=codeEditor.getSelectionEnd();
+            int selectionInt = codeSection.length(), selector = codeEditor.getSelectionStart(), selectionEnd = codeEditor.getSelectionEnd();
+            Boolean stylesheet = false;
+            Boolean javaScript = false;
+            Boolean htmlFile = false;
+            if (fileType.equals("css") || projectName.contains("css")) {
+                stylesheet = true;
+                javaScript = false;
+                htmlFile = false;
+            } else if ((fileType.contains("html") || projectName.contains("html"))) {
+                stylesheet = false;
+                htmlFile = true;
+                javaScript = false;
+            }
+
             switch (view.getId()) {
                 case R.id.headActionButton:
-                    codeSection = codeEditor.getText().insert(selector, HEAD_STRING).toString();
+                    if (stylesheet)
+                        codeSection = codeEditor.getText().append("head{\r\n}").toString();
+                    else if (htmlFile)
+                        codeSection = codeEditor.getText().insert(selector, HEAD_STRING).toString();
                     codeEditor.setText(codeSection);
-                    codeEditor.setSelection(codeSection.indexOf("</head>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.indexOf("</head>"));
+                    else
+                        codeEditor.setSelection(codeSection.lastIndexOf("head{\r\n}"));
                     break;
                 case R.id.htmlActionButton:
                     codeSection = codeEditor.getText().toString();
-                    if (codeSection.contains("<html>"))
+                    if (codeSection.contains("<html>") & !codeSection.contains("</html>"))
                         codeSection = codeSection.concat("\r\n" + "</html>");
                     else if (!codeSection.contains("<html>"))
                         codeSection = codeSection.concat("<html>");
-                    else if (codeSection.contains("<html>") & codeSection.contains("</html>"))
-                        codeSection.concat(HTML_STRING);
                     codeEditor.setText(codeSection);
                     codeEditor.setSelection(codeSection.length());
                     break;
                 case R.id.paragraphActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("p{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), PARAGRAPH_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</p>") - 1);
-                    else
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</p>"));
+                    else if (stylesheet)
                         codeEditor.setSelection(codeSection.lastIndexOf("p{\r\n}"));
                     break;
                 case R.id.divActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("div{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(selectionInt, DIV_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</div>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</div>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("div{\r\n}"));
                     break;
                 case R.id.asideActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("aside{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(selectionInt, ASIDE_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</aside>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</aside>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("aside{\r\n}"));
                     break;
                 case R.id.labelActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("label{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(selectionInt, LABEL_ACTIONSTRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("<label>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("<label>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("label{\r\n}"));
                     break;
                 case R.id.inputActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("input{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(selectionInt, INPUT_ACTIONSTRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</input>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</input>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("input{\r\n}"));
                     break;
                 case R.id.bodyActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("body{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(selectionInt, BODY_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.indexOf("</body>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.indexOf("</body>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("body{\r\n}"));
                     break;
@@ -203,237 +221,242 @@ TextView fileNameView;
                     codeEditor.setSelection(codeSection.lastIndexOf("<br>"));
                     break;
                 case R.id.buttonActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("button{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), BUTTON_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</button>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</button>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("button{\r\n}"));
                     break;
                 case R.id.h1ActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("h1{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), H1_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</h1>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</h1>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("h1{\r\n}"));
                     break;
                 case R.id.h2ActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("h2{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), H2_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</h2>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</h2>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("h2{\r\n}"));
                     break;
                 case R.id.h3ActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("h3{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), H3_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</h3>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</h3>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("h3{\r\n}"));
                     break;
                 case R.id.h4ActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("h4{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), H4_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</h4>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</h4>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("h4{\r\n}"));
                     break;
                 case R.id.h5ActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("h5{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), H5_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</h5>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</h5>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("h5{\r\n}"));
                     break;
                 case R.id.h6ActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("h5{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), H6_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</h6>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</h6>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("h6{\r\n}"));
                     break;
                 case R.id.mainActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("main{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), MAIN_ACTIONSTRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.indexOf("</main>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</main>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("main{\r\n}"));
                     break;
                 case R.id.formActionButton:
                     codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), FORM_STRING).toString();
                     codeEditor.setText(codeSection);
-                    codeEditor.setSelection(codeSection.lastIndexOf("</form>") - 1);
+                    codeEditor.setSelection(codeSection.lastIndexOf("</form>"));
                     break;
                 case R.id.quoteActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("q{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), QUOTATION_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</q>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</q>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("q{\r\n}"));
                     break;
                 case R.id.headerActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("header{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), HEADER_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.indexOf("</header>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.indexOf("</header>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("header{\r\n}"));
                     break;
                 case R.id.footerActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("footer{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeEditor.getText().insert(codeEditor.getSelectionStart(), FOOTER_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.indexOf("</footer>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.indexOf("</footer>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("footer{\r\n}"));
                     break;
                 case R.id.strikerActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("footer{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), STRIKER_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</s>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</s>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("s{\r\n}"));
                     break;
                 case R.id.scriptActionButton:
                     codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), SCRIPT_STRING).toString();
                     codeEditor.setText(codeSection);
-                    codeEditor.setSelection(codeSection.lastIndexOf("</script>") - 1);
+                    codeEditor.setSelection(codeSection.lastIndexOf("</script>"));
                     break;
                 case R.id.styleActionButton:
                     codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), STYLE_STRING).toString();
                     codeEditor.setText(codeSection);
-                    codeEditor.setSelection(codeSection.lastIndexOf("</style>") - 1);
+                    codeEditor.setSelection(codeSection.lastIndexOf("</style>"));
                     break;
                 case R.id.linkActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), "<link rel=\" \" type=\"\" href=\"\">").toString();
+                    codeEditor.setText(codeSection);
+                    codeEditor.setSelection(codeSection.lastIndexOf("<link"));
+                    break;
+                case R.id.aHrefActionButton:
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("a{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), LINK_REF_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</a>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</a>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("a{\r\n}"));
                     break;
                 case R.id.tableActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("table{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), TABLE_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</table>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</table>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("table{\r\n}"));
                     break;
                 case R.id.tableDetlActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("td{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeEditor.getText().insert(codeEditor.getSelectionStart(), TABLE_DETAIL_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</td>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</td>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("td{\r\n}"));
                     break;
                 case R.id.tableRowActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("tr{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), TABLE_ROW_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</tr>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</tr>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("tr{\r\n}"));
                     break;
                 case R.id.tableFootActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("tfoot{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), TABLE_FOOTER_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</tfoot>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</tfoot>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("tfoot{\r\n}"));
                     break;
                 case R.id.listActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("li{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), LIST_ITEM_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</li>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</li>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("li{\r\n}"));
                     break;
                 case R.id.unorderedListActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("ul{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), UNORDERED_LIST_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</ul>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</ul>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("ul{\r\n}"));
                     break;
                 case R.id.orderedListActionButton:
-                    if (fileType.equals("css") || projectName.contains("css"))
+                    if (stylesheet)
                         codeSection = codeEditor.getText().append("ol{\r\n}").toString();
-                    else if (fileType == "html" || projectName.contains("html"))
+                    else if (htmlFile)
                         codeSection = codeEditor.getText().insert(codeEditor.getSelectionStart(), ORDERED_LIST_STRING).toString();
                     codeEditor.setText(codeSection);
-                    if (fileType == "html" || projectName.contains("html"))
-                        codeEditor.setSelection(codeSection.lastIndexOf("</ol>") - 1);
+                    if (htmlFile)
+                        codeEditor.setSelection(codeSection.lastIndexOf("</ol>"));
                     else
                         codeEditor.setSelection(codeSection.lastIndexOf("ol{\r\n}"));
                     break;
@@ -461,6 +484,8 @@ TextView fileNameView;
         codeEditor = findViewById(R.id.code_block_EditText);
         submitButton = findViewById(R.id.submit_Button);
         asideButton = findViewById(R.id.asideActionButton);
+        linkRefButton = findViewById(R.id.linkActionButton);
+        linkRefButton.setOnClickListener(textTagClicker);
         asideButton.setOnClickListener(textTagClicker);
         inputButton = findViewById(R.id.inputActionButton);
         inputButton.setOnClickListener(textTagClicker);
@@ -517,7 +542,7 @@ TextView fileNameView;
         unListButton.setOnClickListener(textTagClicker);
         orListButton = findViewById(R.id.orderedListActionButton);
         orListButton.setOnClickListener(textTagClicker);
-        linkButton = findViewById(R.id.linkActionButton);
+        linkButton = findViewById(R.id.aHrefActionButton);
         linkButton.setOnClickListener(textTagClicker);
         saveButton = findViewById(R.id.saveButton);
         saveButton.setOnClickListener(textTagClicker);
@@ -568,7 +593,7 @@ TextView fileNameView;
                     this.getContentResolver().
                             openFileDescriptor(uri, "w");
 
-            FileOutputStream fileOutputStream =
+            OutputStream fileOutputStream =
                     new FileOutputStream(pfd.getFileDescriptor());
 
             String textContent =
