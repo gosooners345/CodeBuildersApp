@@ -552,6 +552,7 @@ public class CodeActivity extends AppCompatActivity {
     //Save file method
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void SaveFile() {
+        Intent homeActivity = new Intent(getApplicationContext(), MainScreen.class);
         String saveFile;
         if (activity_id == 1)
             saveFile = projectName + "." + fileType;
@@ -566,7 +567,6 @@ public class CodeActivity extends AppCompatActivity {
             intent.setType("text/html");
         intent.putExtra(Intent.EXTRA_TITLE, saveFile);
         startActivityForResult(intent, SAVE_REQUEST_CODE);
-
     }
 
     //Handles Save activity
@@ -582,7 +582,9 @@ public class CodeActivity extends AppCompatActivity {
                 currentUri = resultData.getData();
                 writeFileContent(currentUri);
             }
+
         }
+        onBackPressed();
     }
 
     //Writes code to file

@@ -5926,7 +5926,7 @@
         <item>html</item>
         <item>css</item>
         <item>js</item>
-    </string-array><string name="name">Name</string><string name="file_type">File type</string></file><file path="C:\AndroidAppProjects\CodeBuildersApp\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    </string-array><string name="name">Name</string><string name="file_type">File type</string><string name="web_link">web link</string></file><file path="C:\AndroidAppProjects\CodeBuildersApp\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

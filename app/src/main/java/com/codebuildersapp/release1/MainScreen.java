@@ -1,5 +1,6 @@
 package com.codebuildersapp.release1;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -10,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -30,6 +32,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Objects;
 
@@ -46,12 +49,15 @@ public class MainScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+//File codeBuildersAppDir = new File(Environment.getExternalStorageDirectory()+"/CodeBuildersApp");
 
 
         permissions[0] = Manifest.permission.READ_EXTERNAL_STORAGE;
         permissions[1] = Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+
+
             Toast.makeText(this, "Access Granted", Toast.LENGTH_SHORT).show();
         } else {
             ActivityCompat.requestPermissions(this, permissions, 1);
@@ -122,12 +128,26 @@ public class MainScreen extends AppCompatActivity {
             Spinner projectType = findViewById(R.id.projectFileType);
             projectType.setOnItemSelectedListener(newFileTypeListener);
             Button saveButton = findViewById(R.id.saveNewFileButton), cancelButton = findViewById(R.id.cancelFileButton);
-            ;
+
 
             saveButton.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public void onClick(View view) {
+
                     final String fileName = projectTextBox.getText().toString();
+/*
+                    File projectFile = new File(Environment.getExternalStorageDirectory()+"/CodeBuildersApp"+String.format("/%s",fileName));
+                    if(!projectFile.exists()) {
+                        try {
+                            Files.createDirectory(projectFile.toPath());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+*/
+
                     intent1.putExtra("INTENT_ID", INTENT_ID);
                     intent1.putExtra("PROJECT", fileName);
                     intent1.putExtra("DOCUMENTTYPE", fileType);
@@ -156,16 +176,18 @@ public class MainScreen extends AppCompatActivity {
     };
 
     private String readTextFromUri(Uri uri) throws IOException {
-        StringBuilder stringBuilder = new StringBuilder();
+        //StringBuilder stringBuilder = new StringBuilder();
+        String textBuilder = "";
         try (InputStream inputStream =
                      getContentResolver().openInputStream(uri);
              BufferedReader reader = new BufferedReader(
                      new InputStreamReader(Objects.requireNonNull(inputStream)))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                stringBuilder.append(line);
+                textBuilder += (line);
             }
         }
-        return stringBuilder.toString();
+        return textBuilder;
     }
+
 }

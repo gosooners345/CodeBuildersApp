@@ -6,33 +6,24 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8997189d-6c7e-41b3-a2a0-9775db01da7c" name="Default Changelist" comment="Fix new file screen edit text related items">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="8997189d-6c7e-41b3-a2a0-9775db01da7c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/codebuildersapp/release1/CodeActivity$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/codebuildersapp/release1/CodeActivity$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/codebuildersapp/release1/CodeActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/codebuildersapp/release1/CodeActivity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/codebuildersapp/release1/MainScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/codebuildersapp/release1/MainScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/out/resources-debug.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/out/resources-debug.ap_" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/codebuildersapp/release1/CodeActivity$2.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/codebuildersapp/release1/CodeActivity$2.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/codebuildersapp/release1/CodeActivity.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/codebuildersapp/release1/CodeActivity.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/codebuildersapp/release1/MainScreen.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/codebuildersapp/release1/MainScreen.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_main_screen.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_main_screen.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/debug.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/values.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/values.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex_archive_input_jar_hashes/debug/out" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex_archive_input_jar_hashes/debug/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/codebuildersapp/release1/browserActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/codebuildersapp/release1/browserActivity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/codebuildersapp/release1/browserActivity.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/codebuildersapp/release1/browserActivity.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_code.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_code.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values_values.arsc.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values_values.arsc.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/runtime_symbol_list/debug/R.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/runtime_symbol_list/debug/R.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_code.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_code.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/MainScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602253060175</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed Tag errors">
+      <created>1602518655819</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1602518655819</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -239,7 +237,8 @@
     <MESSAGE value="Improve Save code" />
     <MESSAGE value="Squash save file bugs" />
     <MESSAGE value="Fix new file screen edit text related items" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix new file screen edit text related items" />
+    <MESSAGE value="Fixed Tag errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Tag errors" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -267,10 +266,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="448" y="154" key="AndroidCreateXmlResourceDialog/0.0.1280.680@0.0.1280.680" timestamp="1602075619797" />
-    <state x="56" y="0" width="1224" height="680" key="CommitChangelistDialog2" timestamp="1602260021788">
+    <state x="56" y="0" width="1224" height="680" key="CommitChangelistDialog2" timestamp="1602518651058">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="56" y="0" width="1224" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1602260021788" />
+    <state x="56" y="0" width="1224" height="680" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1602518651058" />
     <state x="422" y="82" key="FileChooserDialogImpl" timestamp="1601041615088">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -283,46 +282,46 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="405" y="47" key="Github.UntrackedFilesDialog/0.0.1280.680@0.0.1280.680" timestamp="1601041873851" />
-    <state width="1237" height="198" key="GridCell.Tab.0.bottom" timestamp="1602518007322">
+    <state width="1237" height="198" key="GridCell.Tab.0.bottom" timestamp="1602597668201">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="198" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1602518007322" />
-    <state width="1237" height="198" key="GridCell.Tab.0.center" timestamp="1602518007320">
+    <state width="1237" height="198" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1602597668201" />
+    <state width="1237" height="198" key="GridCell.Tab.0.center" timestamp="1602597668201">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="198" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1602518007320" />
-    <state width="1237" height="198" key="GridCell.Tab.0.left" timestamp="1602518007319">
+    <state width="1237" height="198" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1602597668201" />
+    <state width="1237" height="198" key="GridCell.Tab.0.left" timestamp="1602597668201">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="198" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1602518007319" />
-    <state width="1237" height="198" key="GridCell.Tab.0.right" timestamp="1602518007321">
+    <state width="1237" height="198" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1602597668201" />
+    <state width="1237" height="198" key="GridCell.Tab.0.right" timestamp="1602597668201">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="198" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1602518007321" />
-    <state width="1237" height="198" key="GridCell.Tab.1.bottom" timestamp="1602518019244">
+    <state width="1237" height="198" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1602597668201" />
+    <state width="1237" height="198" key="GridCell.Tab.1.bottom" timestamp="1602597668201">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="198" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1602518019244" />
-    <state width="1237" height="198" key="GridCell.Tab.1.center" timestamp="1602518019244">
+    <state width="1237" height="198" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1602597668201" />
+    <state width="1237" height="198" key="GridCell.Tab.1.center" timestamp="1602597668201">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="198" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1602518019244" />
-    <state width="1237" height="198" key="GridCell.Tab.1.left" timestamp="1602518019244">
+    <state width="1237" height="198" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1602597668201" />
+    <state width="1237" height="198" key="GridCell.Tab.1.left" timestamp="1602597668201">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="198" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1602518019244" />
-    <state width="1237" height="198" key="GridCell.Tab.1.right" timestamp="1602518019244">
+    <state width="1237" height="198" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1602597668201" />
+    <state width="1237" height="198" key="GridCell.Tab.1.right" timestamp="1602597668201">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="198" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1602518019244" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1602260028295">
+    <state width="1237" height="198" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1602597668201" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1602518657699">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1602260028295" />
-    <state width="326" height="84" key="javadoc.popup.new" timestamp="1602516545287">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1602518657699" />
+    <state width="326" height="84" key="javadoc.popup.new" timestamp="1602598351678">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="326" height="84" key="javadoc.popup.new/0.0.1280.680@0.0.1280.680" timestamp="1602516545287" />
+    <state width="326" height="84" key="javadoc.popup.new/0.0.1280.680@0.0.1280.680" timestamp="1602598351678" />
     <state width="408" height="113" key="javadoc.popup.new/0.0.1600.860@0.0.1600.860" timestamp="1601659783710" />
     <state x="298" y="151" key="run.anything.popup" timestamp="1601387224396">
       <screen x="0" y="0" width="1280" height="680" />
@@ -338,73 +337,48 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java</url>
-          <line>553</line>
+          <line>560</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java</url>
-          <line>555</line>
+          <line>562</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java</url>
-          <line>556</line>
+          <line>563</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java</url>
-          <line>554</line>
+          <line>561</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java</url>
-          <line>560</line>
+          <line>567</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java</url>
-          <line>561</line>
+          <line>568</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java</url>
-          <line>559</line>
+          <line>566</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java</url>
-          <line>585</line>
-          <option name="timeStamp" value="26" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/MainScreen.java</url>
+          <line>178</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java</url>
-          <line>586</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java</url>
-          <line>587</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java</url>
-          <line>589</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java</url>
-          <line>590</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java</url>
-          <line>592</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/CodeActivity.java</url>
-          <line>595</line>
-          <option name="timeStamp" value="32" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/codebuildersapp/release1/MainScreen.java</url>
+          <line>177</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -413,6 +387,7 @@
         <watch expression="uri.getPathSegments().size()" />
         <watch expression="moreChunks" language="JAVA" />
         <watch expression="codeSection" />
+        <watch expression="textBuilder" />
       </configuration>
     </watches-manager>
   </component>

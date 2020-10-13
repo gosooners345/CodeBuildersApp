@@ -1629,6 +1629,7 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id aHrefActionButton
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2346,6 +2347,7 @@ string tableDetail
 string tableFootString
 string tableRowString
 string unorderedListItem
+string web_link
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow
