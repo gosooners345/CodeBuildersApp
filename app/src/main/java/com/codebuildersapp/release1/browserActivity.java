@@ -15,6 +15,7 @@ WebView webView;
         webView=findViewById(R.id.web_product);
         webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setJavaScriptEnabled(true);
+
         webView.loadData(getIntent().getStringExtra("textData"),"text/html; charset=utf-8", "UTF-8");
 
     }

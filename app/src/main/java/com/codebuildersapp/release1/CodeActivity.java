@@ -25,16 +25,16 @@ import android.widget.Toast;
 
 import java.io.*;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 
 
 public class CodeActivity extends AppCompatActivity {
-    OutputStream outStream;
+
     private static final int CREATE_NEW_CODE_FILE = 1;
-    //File file = new File(sdCard,"");
     private static final int CSS_FILE = 3;
-    InputStream inStream;
+    String verifyText = "";
     Button htmlButton, paragraphButton, divButton, headButton, bodyButton, submitButton, breakButton, buttonButton;
     Button h1Button, h2Button, h3Button, h4Button, h5Button, h6Button, linkButton;
     Button tableButton, tableRowButton, tableDetlButton, tableFooterButton;
@@ -53,7 +53,7 @@ public class CodeActivity extends AppCompatActivity {
             HEADER_STRING = "<header> \r\n</header>", FOOTER_STRING = "<footer>\r\n </footer>", FORM_STRING = "<form> \r\n</form>",
             SCRIPT_STRING = "<script> </script>", STRIKER_STRING = "<s> </s>", STYLE_STRING = "<style>\r\n</style>", ASIDE_STRING = "<aside> \r\n</aside>",
             INPUT_ACTIONSTRING = "<input>", LABEL_ACTIONSTRING = "<label>";
-
+    int switchon = 0;
     private static final int SAVE_REQUEST_CODE = 33;
     TextInputEditText codeEditor;
     String codeSection, projectName = "", fileType = "";
@@ -67,23 +67,7 @@ public class CodeActivity extends AppCompatActivity {
         fileNameView = findViewById(R.id.page_title_TV);
         buttonInitializer();
         activity_id = getIntent().getIntExtra("INTENT_ID", -1);
-        codeEditor.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                codeSection = charSequence.toString();
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
 //This determines what the application needs to do in order to display the right data
         //Aka new file or reading in a file
         switch (activity_id) {
@@ -102,6 +86,7 @@ public class CodeActivity extends AppCompatActivity {
                 break;
 
         }
+        verifyText = codeSection;
         projectName = getIntent().getStringExtra("PROJECT");
         fileNameView.setText(projectName);
         codeEditor.setText(codeSection);
@@ -142,12 +127,25 @@ public class CodeActivity extends AppCompatActivity {
                     break;
                 case R.id.htmlActionButton:
                     codeSection = codeEditor.getText().toString();
-                    if (codeSection.contains("<html>") & !codeSection.contains("</html>"))
-                        codeSection = codeSection.concat("\r\n" + "</html>");
-                    else if (!codeSection.contains("<html>"))
-                        codeSection = codeSection.concat("<html>");
+                    if (stylesheet)
+                        codeSection = codeEditor.getText().append("html{\r\n}").toString();
+                    else if (htmlFile)
+                        if (switchon == 0) {
+                            codeSection = codeEditor.getText().append("<html>").toString();
+                        } else if (switchon == 1) {
+                            codeSection = codeEditor.getText().append("</html>").toString();
+                        }
                     codeEditor.setText(codeSection);
-                    codeEditor.setSelection(codeSection.length());
+                    if (htmlFile) {
+                        if (switchon == 0)
+                            codeEditor.setSelection(codeSection.indexOf("<html>") + 6);
+
+                        else if (switchon == 1)
+                            codeEditor.setSelection(codeSection.indexOf("</html>") - 1);
+                        switchon++;
+                    } else
+                        codeEditor.setSelection(codeSection.lastIndexOf("html{\r\n}"));
+
                     break;
                 case R.id.paragraphActionButton:
                     if (stylesheet)
@@ -197,7 +195,7 @@ public class CodeActivity extends AppCompatActivity {
                     if (stylesheet)
                         codeSection = codeEditor.getText().append("input{\r\n}").toString();
                     else if (htmlFile)
-                        codeSection = codeEditor.getText().insert(selectionInt, INPUT_ACTIONSTRING).toString();
+                        codeSection = codeEditor.getText().insert(selector, INPUT_ACTIONSTRING).toString();
                     codeEditor.setText(codeSection);
                     if (htmlFile)
                         codeEditor.setSelection(codeSection.lastIndexOf("</input>"));
@@ -208,7 +206,7 @@ public class CodeActivity extends AppCompatActivity {
                     if (stylesheet)
                         codeSection = codeEditor.getText().append("body{\r\n}").toString();
                     else if (htmlFile)
-                        codeSection = codeEditor.getText().insert(selectionInt, BODY_STRING).toString();
+                        codeSection = codeEditor.getText().insert(selector, BODY_STRING).toString();
                     codeEditor.setText(codeSection);
                     if (htmlFile)
                         codeEditor.setSelection(codeSection.indexOf("</body>"));
@@ -552,21 +550,32 @@ public class CodeActivity extends AppCompatActivity {
     //Save file method
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void SaveFile() {
-        Intent homeActivity = new Intent(getApplicationContext(), MainScreen.class);
+
         String saveFile;
         if (activity_id == 1)
             saveFile = projectName + "." + fileType;
         else
             saveFile = projectName;
         codeSection = codeEditor.getText().toString();
+
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         if (saveFile.contains("css"))
             intent.setType("text/css");
         else
             intent.setType("text/html");
-        intent.putExtra(Intent.EXTRA_TITLE, saveFile);
-        startActivityForResult(intent, SAVE_REQUEST_CODE);
+        if (activity_id == 2) {
+            if (!codeSection.equals(verifyText)) {
+                intent.putExtra(Intent.EXTRA_TITLE, saveFile);
+                startActivityForResult(intent, SAVE_REQUEST_CODE);
+            } else {
+                Toast.makeText(getApplicationContext(), "No changes were made. File unchanged", Toast.LENGTH_SHORT).show();
+                onBackPressed();
+            }
+        } else {
+            intent.putExtra(Intent.EXTRA_TITLE, saveFile);
+            startActivityForResult(intent, SAVE_REQUEST_CODE);
+        }
     }
 
     //Handles Save activity
@@ -590,24 +599,20 @@ public class CodeActivity extends AppCompatActivity {
     //Writes code to file
     private void writeFileContent(Uri uri)
     {
-        try{
+        try {
             ParcelFileDescriptor pfd =
                     this.getContentResolver().
                             openFileDescriptor(uri, "w");
 
-            OutputStream fileOutputStream =
-                    new FileOutputStream(pfd.getFileDescriptor());
 
+            FileWriter fileStream = new FileWriter(pfd.getFileDescriptor());
             String textContent =
                     codeEditor.getText().toString();
-
-            fileOutputStream.write(textContent.getBytes());
-
-            fileOutputStream.close();
+            fileStream.write(textContent);
+            fileStream.flush();
+            fileStream.close();
             pfd.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -136,17 +136,6 @@ public class MainScreen extends AppCompatActivity {
                 public void onClick(View view) {
 
                     final String fileName = projectTextBox.getText().toString();
-/*
-                    File projectFile = new File(Environment.getExternalStorageDirectory()+"/CodeBuildersApp"+String.format("/%s",fileName));
-                    if(!projectFile.exists()) {
-                        try {
-                            Files.createDirectory(projectFile.toPath());
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-*/
 
                     intent1.putExtra("INTENT_ID", INTENT_ID);
                     intent1.putExtra("PROJECT", fileName);
@@ -176,7 +165,7 @@ public class MainScreen extends AppCompatActivity {
     };
 
     private String readTextFromUri(Uri uri) throws IOException {
-        //StringBuilder stringBuilder = new StringBuilder();
+
         String textBuilder = "";
         try (InputStream inputStream =
                      getContentResolver().openInputStream(uri);
@@ -187,6 +176,7 @@ public class MainScreen extends AppCompatActivity {
                 textBuilder += (line);
             }
         }
+
         return textBuilder;
     }
 
