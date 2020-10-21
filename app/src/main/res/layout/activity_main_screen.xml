@@ -7,12 +7,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/master_screen_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -35,10 +44,5 @@ android:layout_height="wrap_content"
         app:backgroundTint="@color/colorAccent"
         app:icon="@android:drawable/ic_input_add" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recentFilesRCV"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/file_name_listitem_layout" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

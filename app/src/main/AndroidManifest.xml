@@ -10,13 +10,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".browserActivity"
-            android:parentActivityName=".CodeActivity"></activity>
+        <activity
+            android:name=".browserActivity"
+            android:parentActivityName=".CodeActivity" />
         <activity
             android:name=".CodeActivity"
             android:parentActivityName=".MainScreen"
-            android:requestLegacyExternalStorage="true"
-            > </activity>
+            android:requestLegacyExternalStorage="true"></activity>
         <activity
             android:name=".MainScreen"
             android:label="@string/app_name"

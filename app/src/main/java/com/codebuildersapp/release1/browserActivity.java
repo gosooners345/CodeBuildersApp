@@ -3,6 +3,7 @@ package com.codebuildersapp.release1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -12,11 +13,13 @@ WebView webView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browser);
-        webView=findViewById(R.id.web_product);
+        String fileData = "file://" + Environment.getExternalStorageDirectory().getAbsolutePath() + "/Documents/Project/";
+        webView = findViewById(R.id.web_product);
         webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setJavaScriptEnabled(true);
-
-        webView.loadData(getIntent().getStringExtra("textData"),"text/html; charset=utf-8", "UTF-8");
+        String webData = getIntent().getStringExtra("textData");
+        setTitle(fileData);
+        webView.loadDataWithBaseURL(fileData, webData, "text/html", "UTF-8", "");
 
     }
 }
